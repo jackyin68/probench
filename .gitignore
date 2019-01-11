@@ -18,6 +18,5 @@ mkmf.log
 *.gem
 pkg
 Gemfile.lock
-build.sh
 .vscode/
 .vagrant/
