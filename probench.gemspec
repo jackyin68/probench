@@ -17,6 +17,5 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.license       = 'Apache-2.0'
 
-  s.add_development_dependency 'highline', '~> 0'
-  s.add_development_dependency 'rake', '~> 0'
+  s.add_runtime_dependency 'highline'
 end
