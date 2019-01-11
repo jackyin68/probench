@@ -1,6 +1,8 @@
+require_relative '../lib/memory'
 
 class Probench
-    def self.hi
-        puts "Probench welcome!"
-    end
+  def self.cli
+    puts 'Probench welcome!'
+    SystemMemory.probe
+  end
 end
