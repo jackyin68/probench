@@ -97,6 +97,3 @@ class WindowsSystemProcessors < SystemProcessors
     @architecture = 'x86_64' if proc['AddressWidth'] == '64'
   end
 end
-
-procprobe = SystemProcessors.probe
-puts procprobe.to_yaml

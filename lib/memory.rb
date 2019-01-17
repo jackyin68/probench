@@ -120,6 +120,3 @@ class WindowsSystemMemory < SystemMemory
     @is_ecc = data_width != total_width
   end
 end
-
-memprobe = SystemMemory.probe
-puts memprobe.to_yaml
