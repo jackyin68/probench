@@ -1,4 +1,15 @@
 #!/usr/bin/env ruby
 
 require 'probench'
-Probench.cli
+
+case ARGV[0]
+  when "probe-hardware"
+    Probench.probe_hardware
+  when "run-benchmarks"
+    puts "'Implement me'"
+  else
+    print "Please provide command name
+Usage:
+  probench probe-hardware
+  probench run-benchmarks\n"
+end

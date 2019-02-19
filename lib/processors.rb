@@ -38,10 +38,10 @@ class LinuxSystemProcessors < SystemProcessors
 
   def initialize
     proc = lscpu
-    @model = proc['Model']
+    @model = proc['Model'].to_i
     @model_name = proc['Model name']
     @speed = (@model_name.split[5][0..-4].to_f * 1000).to_i
-    @family = proc['CPU family']
+    @family = proc['CPU family'].to_i
     @architecture = proc['Architecture']
     @count = proc['Socket(s)'].to_i
     @core_count = proc['Core(s) per socket'].to_i * @count

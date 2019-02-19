@@ -30,9 +30,16 @@ end
 
 # Processor probe for Linux systems
 class LinuxSystemNetwork < SystemNetwork
-  lshw_xml = ``
   def initialize
-    puts 'Implement me'
+    cmd = "ip route | awk '/default/{print $3}'"
+    @default_gateway = `#{cmd}`.strip
+
+    cmd = "ip route | awk '/default/{print $5}'"
+    @default_device = `#{cmd}`.strip
+
+    cmd = "sudo lshw -class network | awk '/logical name:/{name=$3} /size: "\
+          "/{size=$2; print name FS size}' | grep #{default_device} | awk '{print $2}'"
+    @dev_link_speed = `#{cmd}`.strip
   end
 end
 
@@ -50,5 +57,4 @@ class WindowsSystemNetwork < SystemNetwork
   end
 end
 
-netprobe = SystemNetwork.probe
-puts netprobe.to_yaml
+
